@@ -1,0 +1,52 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title">{{title}} user</h5>
+        <button type="button" class="btn-close close py-4 pe-5 shadow-none" aria-label="Close" (click)="cancel()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+            <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" formControlName="firstName">
+                <div *ngIf="userForm?.get('firstName')?.invalid && userForm?.get('firstName')?.touched"
+                    class="text-danger">
+                    First Name is required
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                <div *ngIf="userForm?.get('lastName')?.invalid && userForm?.get('lastName')?.touched"
+                    class="text-danger">
+                    Last Name is required
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email">
+                <div *ngIf="userForm?.get('email')?.errors?.['required'] && userForm?.get('email')?.touched"
+                    class="text-danger">
+                    Email is required
+                </div>
+                <div *ngIf="userForm?.get('email')?.errors?.['email'] && userForm?.get('email')?.touched"
+                    class="text-danger">
+                    Email must be a valid email address
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <textarea rows="3" type="text" class="form-control" id="address" formControlName="address"></textarea>
+                <div *ngIf="userForm?.get('address')?.errors?.['required'] && userForm?.get('address')?.touched"
+                    class="text-danger">
+                    Address is required
+                </div>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary me-2">Save</button>
+                <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

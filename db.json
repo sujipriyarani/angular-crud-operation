@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "id": "172f",
+      "firstName": "hgfh",
+      "lastName": "gf",
+      "email": "fdc@efdg.k",
+      "address": "ghjn"
+    }
+  ],
+  "credentials": [
+    {
+      "email": "suji@yopmail.com",
+      "password": "password123",
+      "id": "b405"
+    },
+    {
+      "id": "dbb1",
+      "email": "suji@yopmail.com",
+      "password": "password123"
+    }
+  ]
+}
